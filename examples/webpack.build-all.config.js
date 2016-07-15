@@ -8,6 +8,7 @@ var examples = [
 
 var entry = {}
 examples.forEach(function (name) {
+  console.log(name)
   entry[name] = ['./build/bind.js', './examples/' + name + '/main.js']
 })
 

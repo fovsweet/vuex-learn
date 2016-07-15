@@ -9,20 +9,19 @@
   (global.Vuex = factory());
 }(this, function () { 'use strict';
 
-  var babelHelpers = {};
-  babelHelpers.typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
     return typeof obj;
   } : function (obj) {
     return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
   };
 
-  babelHelpers.classCallCheck = function (instance, Constructor) {
+  var classCallCheck = function (instance, Constructor) {
     if (!(instance instanceof Constructor)) {
       throw new TypeError("Cannot call a class as a function");
     }
   };
 
-  babelHelpers.createClass = function () {
+  var createClass = function () {
     function defineProperties(target, props) {
       for (var i = 0; i < props.length; i++) {
         var descriptor = props[i];
@@ -40,7 +39,7 @@
     };
   }();
 
-  babelHelpers.toConsumableArray = function (arr) {
+  var toConsumableArray = function (arr) {
     if (Array.isArray(arr)) {
       for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
 
@@ -49,8 +48,6 @@
       return Array.from(arr);
     }
   };
-
-  babelHelpers;
 
   /**
    * Merge an array of objects into one.
@@ -89,7 +86,7 @@
   function deepClone(obj) {
     if (Array.isArray(obj)) {
       return obj.map(deepClone);
-    } else if (obj && (typeof obj === 'undefined' ? 'undefined' : babelHelpers.typeof(obj)) === 'object') {
+    } else if (obj && (typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) === 'object') {
       var cloned = {};
       var keys = Object.keys(obj);
       for (var i = 0, l = keys.length; i < l; i++) {
@@ -333,7 +330,7 @@
       var middlewares = _ref$middlewares === undefined ? [] : _ref$middlewares;
       var _ref$strict = _ref.strict;
       var strict = _ref$strict === undefined ? false : _ref$strict;
-      babelHelpers.classCallCheck(this, Store);
+      classCallCheck(this, Store);
 
       this._getterCacheId = 'vuex_store_' + uid++;
       this._dispatching = false;
@@ -376,7 +373,7 @@
      * @return {Object}
      */
 
-    babelHelpers.createClass(Store, [{
+    createClass(Store, [{
       key: 'dispatch',
 
 
@@ -393,7 +390,7 @@
 
         var silent = false;
         // compatibility for object actions, e.g. FSA
-        if ((typeof type === 'undefined' ? 'undefined' : babelHelpers.typeof(type)) === 'object' && type.type && arguments.length === 1) {
+        if ((typeof type === 'undefined' ? 'undefined' : _typeof(type)) === 'object' && type.type && arguments.length === 1) {
           payload = [type.payload];
           if (type.silent) silent = true;
           type = type.type;
@@ -405,10 +402,10 @@
           // apply the mutation
           if (Array.isArray(mutation)) {
             mutation.forEach(function (m) {
-              return m.apply(undefined, [state].concat(babelHelpers.toConsumableArray(payload)));
+              return m.apply(undefined, [state].concat(toConsumableArray(payload)));
             });
           } else {
-            mutation.apply(undefined, [state].concat(babelHelpers.toConsumableArray(payload)));
+            mutation.apply(undefined, [state].concat(toConsumableArray(payload)));
           }
           this._dispatching = false;
           if (!silent) this._applyMiddlewares(type, payload);

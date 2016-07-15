@@ -79,6 +79,7 @@ export default {
   },
   computed: {
     allChecked () {
+      console.log(todo => todo.done)
       return this.todos.every(todo => todo.done)
     },
     filteredTodos () {

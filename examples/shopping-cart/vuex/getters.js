@@ -8,3 +8,16 @@ export const cartProducts = state => {
     }
   })
 }
+
+// function cartProducts(state){
+// 	return state.cart.added.map(function(id,quantity){
+// 		var product = state.products.all.find(function(p){
+// 			return p.id === id
+// 		});
+// 		return {
+// 			title: product.title,
+// 			price: product.price,
+// 			quantity
+// 	    }
+// 	})
+// }

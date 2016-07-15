@@ -24,6 +24,7 @@ const mutations = {
   },
 
   DELETE_TODO (state, todo) {
+    console.log(todo)
     state.todos.$remove(todo)
   },
 
